@@ -20,13 +20,14 @@ let computerPlay = () => {
 computerPlay();
 
 // Human picks an item
-let humanItem;
-let humanPlay = (text) => {
-  humanItem = prompt("Pick an item", "Rock, Paper or Scissors");
-  humanItem = humanItem.toLowerCase();
-  humanItem = humanItem.charAt(0).toUpperCase() + humanItem.slice(1);
-  return humanItem;
-};
+let weapons = document.querySelectorAll(".weapon");
+let humanMove;
+weapons.forEach((weapon) => {
+  weapon.addEventListener("click", () => {
+    humanMove = weapon.classList[0];
+    console.log(humanMove);
+  });
+});
 
 let counter = 1;
 let humanScore = 0;
@@ -59,15 +60,16 @@ let roundPlay = (computerMove, humanMove) => {
 
 // tracks the counter and if number of rounds is less than 5 then
 //      keeps the rounds of game going.
-while (counter < 6) {
-  computerPlay();
-  newHumanPlay = humanPlay();
-  roundPlay(computerItem, newHumanPlay);
-}
 
-let result =
-  humanScore > computerScore
-    ? alert(`Human is the real champion ${humanScore}-${computerScore}`)
-    : alert(
-        `Computer beats the hell out of human ${computerScore}-${humanScore}`
-      );
+// while (counter < 6) {
+//   computerPlay();
+//   newHumanPlay = humanPlay();
+//   roundPlay(computerItem, newHumanPlay);
+// }
+
+// let result =
+//   humanScore > computerScore
+//     ? alert(`Human is the real champion ${humanScore}-${computerScore}`)
+//     : alert(
+//         `Computer beats the hell out of human ${computerScore}-${humanScore}`
+//       );

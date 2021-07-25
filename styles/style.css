@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Walter Turncoat", cursive;
+  background: #fafdef;
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas:
+    "header"
+    "main";
+  place-items: center;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+}
+.buttons_holder {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 20px;
+}
+button {
+  font-size: 5rem;
+  border-style: none;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  color: rgb(4, 4, 66);
+}
+button:hover {
+  background: rgb(4, 4, 66);
+  color: #fafdef;
+  transform: scale(1.1);
+  box-shadow: 0 2px 10px goldenrod;
+}
+
+.game_text {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+footer {
+  width: 100%;
+  background: #000;
+  color: gray;
+  text-align: left;
+  position: fixed;
+  bottom: 0px;
+}
+span,
+a {
+  text-decoration: none;
+  color: gray;
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+a:hover {
+  text-decoration: underline;
+}
