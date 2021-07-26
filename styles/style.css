@@ -23,6 +23,9 @@ main {
   flex-direction: column;
   align-self: start;
 }
+.choose_head {
+  margin-bottom: 5rem;
+}
 .buttons_holder {
   display: flex;
   justify-content: center;
@@ -36,6 +39,7 @@ button {
   width: 2em;
   border-radius: 50%;
   color: rgb(4, 4, 66);
+  background: rgb(160, 141, 141);
 }
 button:hover {
   background: rgb(4, 4, 66);
