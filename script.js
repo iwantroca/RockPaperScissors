@@ -1,16 +1,15 @@
-// computer selects a random item
-// if either of the player have scored 5, stop the game
-// human selects an item
-// iterate through buttons
-// add event listener to class of both icon and button div to get the value of 'weapon'
-// as the button is clicked, also initiates a function to run the round
-//
-// add a score of +1 to winner
+// create a function to check if any of the player have registered 5 wins
+// if that then 'computer beats the '
 
 let computerItem;
 let playerItem;
-
+let playerScore = 0;
+let computerScore = 0;
 let buttons = document.querySelectorAll("button");
+let gameComment = document.querySelector(".game_result").firstElementChild;
+let gameScore = document.querySelector(".game_score");
+let playerScoreText = gameScore.firstElementChild.firstElementChild;
+let computerScoreText = gameScore.lastElementChild.firstElementChild;
 
 function computerPick() {
   let selectItem = Math.floor(Math.random() * 3);
@@ -25,19 +24,26 @@ function playerPick(e) {
   return playerItem;
 }
 
-// plays a round of game b/w computer and player
+// plays the one round and increments the score of winner
 function roundPlay(computerMove, humanMove) {
   if (
     (computerMove === "rock" && humanMove === "scissors") ||
     (computerMove === "paper" && humanMove === "rock") ||
     (computerMove === "scissors" && humanMove === "paper")
   ) {
-    console.log("Computer beats the player");
+    gameComment.textContent = `Computer Wins!! ${computerItem} beats the ${playerItem}`;
+    computerScore += 1;
+    computerScoreText.textContent = computerScore;
   } else if (computerMove == humanMove) {
-    console.log("It is a draw");
+    gameComment.textContent = `Draw!! Both parties pick the ${computerItem}`;
+    computerScore += 0;
+    playerScore += 0;
   } else {
-    console.log("Human beats the computer");
+    gameComment.textContent = `Player Wins!! ${playerItem} beats the ${computerItem}`;
+    playerScore += 1;
+    playerScoreText.textContent = playerScore;
   }
+  return gameComment;
 }
 
 buttons.forEach((button) => button.addEventListener("click", computerPick));
@@ -45,5 +51,22 @@ buttons.forEach((button) => button.addEventListener("click", playerPick));
 buttons.forEach((button) =>
   button.addEventListener("click", function () {
     roundPlay(computerItem, playerItem);
+  })
+);
+
+function disableButtons() {
+  buttons.forEach((elem) => {
+    elem.disabled = true;
+  });
+}
+function winChecker() {
+  if (computerScore == 5 || playerScore == 5) {
+    disableButtons();
+  }
+}
+
+buttons.forEach((button) =>
+  button.addEventListener("click", function () {
+    winChecker();
   })
 );
