@@ -1,6 +1,3 @@
-// create a function to check if any of the player have registered 5 wins
-// if that then 'computer beats the '
-
 let computerItem;
 let playerItem;
 let playerScore = 0;
