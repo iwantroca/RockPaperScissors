@@ -32,7 +32,7 @@ main {
   gap: 2rem;
   margin-top: 20px;
 }
-button {
+.buttons_holder > button {
   font-size: 5rem;
   border-style: none;
   height: 2em;
@@ -78,4 +78,14 @@ a:hover {
 }
 button > * {
   pointer-events: none;
+}
+#restart-btn {
+  display: none;
+  background: coral;
+  font-family: "Walter Turncoat", cursive;
+  font-size: 1.2rem;
+  width: 5rem;
+  margin-bottom: 50px;
+  place-items: center;
+  align-self: center;
 }

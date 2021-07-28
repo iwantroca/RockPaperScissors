@@ -2,11 +2,12 @@ let computerItem;
 let playerItem;
 let playerScore = 0;
 let computerScore = 0;
-let buttons = document.querySelectorAll("button");
+let buttons = document.querySelectorAll(".weapon");
 let gameComment = document.querySelector(".game_result").firstElementChild;
 let gameScore = document.querySelector(".game_score");
 let playerScoreText = gameScore.firstElementChild.firstElementChild;
 let computerScoreText = gameScore.lastElementChild.firstElementChild;
+let restartBtn = document.querySelector("#restart-btn");
 
 function computerPick() {
   let selectItem = Math.floor(Math.random() * 3);
@@ -58,6 +59,7 @@ function disableButtons() {
 }
 function winChecker() {
   if (computerScore == 5 || playerScore == 5) {
+    addRestartBtn();
     disableButtons();
   }
 }
@@ -67,3 +69,10 @@ buttons.forEach((button) =>
     winChecker();
   })
 );
+function addRestartBtn() {
+  restartBtn.textContent = "restart";
+  restartBtn.style.display = "block";
+}
+let newGame = restartBtn.addEventListener("click", () => {
+  window.location.reload(false);
+});
