@@ -22,7 +22,6 @@ function playerPick(e) {
   return playerItem;
 }
 
-// plays the one round and increments the score of winner
 function roundPlay(computerMove, humanMove) {
   if (
     (computerMove === "rock" && humanMove === "scissors") ||
@@ -73,6 +72,6 @@ function addRestartBtn() {
   restartBtn.textContent = "restart";
   restartBtn.style.display = "block";
 }
-let newGame = restartBtn.addEventListener("click", () => {
+restartBtn.addEventListener("click", () => {
   window.location.reload(false);
 });
