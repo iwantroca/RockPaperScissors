@@ -65,6 +65,7 @@ footer {
   text-align: left;
   position: fixed;
   bottom: 0px;
+  padding-left: 20px;
 }
 span,
 a {
